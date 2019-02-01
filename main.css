@@ -1,141 +1,161 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden
+}
+
+#wrapper {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 100%;
+  padding: 1%;
+  height: 100vh;
+}
+
+
+nav {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  background-color: black;
+  display: none;
+  z-index: 100;
+}
+
+li {
+  list-style-type: none;
+  margin: 3% 0% 0% 47%;
+  width: 8%;
+  transition: 1s;
+  text-align: center
+}
+
+li:nth-child(1) {
+  margin-top: 10%
+}
+
+li:hover {
+  transform: scale(1.1);
+  background-color: white;
+  animation: beat 1.2s ease-in-out infinite forwards;
+
+}
+
+a:hover {
+  color: black
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: 2px
+}
+
+p {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 100;
+  font-size: 25px;
+  font-family: sans-serif
+}
+
+
+@keyframes beat {
+
+  0%,
+  100% {
+    transform: scale3d(1, 1, 1);
   }
-  
-  body {
-    overflow: hidden
+
+  15%,
+  45% {
+    transform: scale3d(1.2, 1.2, 1);
   }
-  
-  #wrapper {
-    background-color: black;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 100%; 
-    padding: 1%;height: 100vh;
+
+  35% {
+    transform: scale3d(1.1, 1.1, 1);
   }
-  
-  
-  nav {
-    grid-column: 1/-1;
-    grid-row: 1/-1;
-    background-color: black;
-    display: none;z-index: 100;
+
+  65% {
+    transform: scale3d(1, 1, 1);
   }
-  
-  li {
-    list-style-type: none;
-    margin: 3% 0% 0% 45%
-  }
-  li:nth-child(1){margin-top: 10%}
-  
-  a {
-    text-decoration: none;
-    color: white;
-    font-weight: 900;
-    font-size: 30px;
-    letter-spacing: 2px
-  }
-  
-  p {
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    z-index: 100;
-    font-size: 25px;
-    font-family: sans-serif
-  }
-  
-  
-  @keyframes beat {
-  
-    0%,
-    100% {
-      transform: scale3d(1, 1, 1);
-    }
-  
-    15%,
-    45% {
-      transform: scale3d(1.2, 1.2, 1);
-    }
-  
-    35% {
-      transform: scale3d(1.1, 1.1, 1);
-    }
-  
-    65% {
-      transform: scale3d(1, 1, 1);
-    }
-  }
-  
-  
-  
-  .heart {
-    width: 100px;
-    height: 90px;
-    position: absolute;
-    top: 7%;
-    right: 46%;
-    cursor: pointer;z-index: 200;
-    animation: beat 1.2s ease-in-out infinite forwards;
-  }
-  
-  
-  .heart:hover {
+}
+
+
+
+.heart {
+  width: 100px;
+  height: 90px;
+  position: absolute;
+  top: 7%;
+  right: 46%;
+  cursor: pointer;
+  z-index: 200;
+  animation: beat 1.2s ease-in-out infinite forwards;
+}
+
+
+.heart:hover {
   animation: beat 0.5s ease-in-out infinite forwards;
-  }
-  
-  
-  .heart:before,
-  .heart:after {
-    position: absolute;
-    content: "";
-    left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
-    background: #fc2e5a;
-    border-radius: 50px 50px 0 0;
+}
+
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: #fc2e5a;
+  border-radius: 50px 50px 0 0;
   transform: rotate(-45deg);
-    transform-origin: 0 100%;
-  }
-  
-  .heart:after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-  }
+  transform-origin: 0 100%;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
 
 
 
 
 #content {
-    grid-column: 1/-1;
-    grid-row: 1/-1;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: auto;
-    height: 100%;
-    grid-auto-flow: dense;
-    grid-gap: 20px;
-    padding: 20px
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  height: 100%;
+  grid-auto-flow: dense;
+  grid-gap: 20px;
+  padding: 20px
 }
 
 .imgcover {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
 }
 
 .span2 {
-    grid-column-end: span 3;
-    grid-row-end: span ;
+  grid-column-end: span 3;
+  grid-row-end: span;
 }
 
 .span3 {
-    grid-column-end: span 4;
-    grid-row-end: span 2;
+  grid-column-end: span 4;
+  grid-row-end: span 2;
 }
